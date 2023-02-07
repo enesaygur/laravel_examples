@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Modelislemleri;
 use App\Http\Controllers\Veritabaniislemleri;
 use App\Http\Controllers\Yonet;
+use App\Http\Controllers\Iletisim;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',  function () {
@@ -27,3 +28,5 @@ Route::get('/modelliste',[Modelislemleri::class,'liste']);
 Route::get('/modelekle',[Modelislemleri::class,'ekle']);
 Route::get('/modelguncelle',[Modelislemleri::class,'guncelle']);
 Route::get('/modelsil',[Modelislemleri::class,'sil']);
+Route::get("/iletisim",[Iletisim::class,"index"]);
+Route::post("/iletisim-sonuc",[Iletisim::class,"ekleme"])->name("iletisim-sonuc");
