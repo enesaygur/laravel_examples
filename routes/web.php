@@ -41,3 +41,11 @@ Route::get("/uye",function (){
     return view("uyelik");
 });
 Route::post("uye-kayit",[Uyelikislemleri::class,"uyekayit"])->name("uyekayit");
+Route::get("/tema",function (){
+    return view("pages.home");
+});
+Route::get("/galeri",function (){
+    return view("pages.galeri");
+});Route::get("/hizmetler",function (){
+    return view("pages.hizmetler");
+});
