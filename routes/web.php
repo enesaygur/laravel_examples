@@ -9,6 +9,7 @@ use App\Http\Controllers\Veritabaniislemleri;
 use App\Http\Controllers\Yonet;
 use App\Http\Controllers\Iletisim;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Facades\Image;
 
 Route::get('/',  function () {
     return view('welcome');
@@ -49,3 +50,13 @@ Route::get("/galeri",function (){
 });Route::get("/hizmetler",function (){
     return view("pages.hizmetler");
 });
+Route::get("/resim",function (){
+/*$img=Image::make("images/pattern.jpg")->resize(300,300);
+$img->save("images/patternNew.jpg");
+return $img->response("jpg");
+*/
+    return view("resim");
+});
+Route::post("/resim",function (){
+   Image::make(request()->file("resim"))->resize(300,300)->save("images/patternNew.jpg");
+})->name("resimyukle");
