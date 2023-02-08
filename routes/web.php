@@ -4,6 +4,7 @@ use App\Http\Controllers\Formislemleri;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Modelislemleri;
 use App\Http\Controllers\ResimYukle;
+use App\Http\Controllers\Uyelikislemleri;
 use App\Http\Controllers\Veritabaniislemleri;
 use App\Http\Controllers\Yonet;
 use App\Http\Controllers\Iletisim;
@@ -36,3 +37,7 @@ Route::get("/upload",function ()
     return view("upload");
 });
 Route::post("/resim-ilet",[ResimYukle::class,"resimYukleme"])->name("yukle");
+Route::get("/uye",function (){
+    return view("uyelik");
+});
+Route::post("uye-kayit",[Uyelikislemleri::class,"uyekayit"])->name("uyekayit");
